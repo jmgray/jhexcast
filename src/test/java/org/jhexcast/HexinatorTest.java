@@ -3,8 +3,6 @@ package org.jhexcast;
 import org.junit.jupiter.api.Test;
 
 
-import org.jhexcast.Hexutils;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class HexinatorTest {
@@ -18,6 +16,7 @@ class HexinatorTest {
 
     Hexinator getHexinator() {
         HexConfig hfcg = HexConfig.getInstance(null);
+        hfcg.initialize(null);
         return new Hexinator(hfcg);
     }
 

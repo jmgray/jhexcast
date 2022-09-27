@@ -1,5 +1,7 @@
 package org.jhexcast;
 
+import org.jhexcast.utils.Hexutils;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,27 +30,49 @@ public class HexConfig {
     private Properties properties=null;
 
     public static HexConfig getInstance(Properties initial) {
+//        System.out.println("instance!");
+        if(initial != null) {
+            instance = null;
+        }
         if (instance == null) {
-            instance = new HexConfig(initial);
+            if (initial == null) {
+                instance = new HexConfig();
+            } else {
+                instance = new HexConfig(initial);
+            }
+
         }
         return instance;
     }
 
+    public static HexConfig getLoadedInstance() {
+        if (instance == null) {
+            instance = new HexConfig();
+        }
+        return instance;
+    }
+
+    private HexConfig() {
+        this.loadProperties();
+    }
+
     private HexConfig(Properties initial) {
+//        System.out.println("construct:" + initial);
         this.initialize(initial);
     }
 
-    private void initialize(Properties initial) {
+    protected void initialize(Properties initial) {
         if(initial != null) {
             this.properties = (Properties) initial.clone();
         } else {
             this.properties = new Properties();
         }
+//        System.out.println("initializing properties!");
         this.properties.putAll(DEFAULT_VALS);
         this.saveProperties();
     }
 
-    private void saveProperties() {
+    protected void saveProperties() {
         try {
             final OutputStream outputstream = new FileOutputStream(CONFIG_FILE);
             this.properties.store(outputstream, "jhexcast properties");
@@ -71,6 +95,7 @@ public class HexConfig {
 
     public void setLeap(int leap) {
         this.properties.setProperty("leap", Integer.toString(leap));
+        this.saveProperties();
     }
 
     public int getLeap() {
@@ -79,6 +104,7 @@ public class HexConfig {
 
     public void setSize(int size) {
         this.properties.setProperty("size", Integer.toString(size));
+        this.saveProperties();
     }
 
     public int getSize() {
@@ -87,6 +113,7 @@ public class HexConfig {
     
     public void setDimension(int dimension) {
         this.properties.setProperty("dimension", Integer.toString(dimension));
+        this.saveProperties();
     }
 
     public int getDimension() {
@@ -94,7 +121,9 @@ public class HexConfig {
     }
 
     public void setIndex(int index) {
+        System.out.println("setindex:" + index);
         this.properties.setProperty("index", Integer.toString(index));
+        this.saveProperties();
     }
 
     public int getIndex() {

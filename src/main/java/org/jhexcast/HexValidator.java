@@ -12,8 +12,8 @@ public class HexValidator {
     public HexValidator() {
         this.hexFilters = new HexFilter[] {
                 new HexSpeakFilter(),
-                new SequenceDigitsFilter(),
-                new MinimumUniqueDigitsFilter()
+                new SequenceDigitsFilter(null),
+                new MinimumUniqueDigitsFilter(null)
         };
     }
 
@@ -26,19 +26,3 @@ public class HexValidator {
         return true;
     }
 }
-
-
-
-//
-//    def is_valid(self, candidate):
-//        for f in self.filters:
-//            if not f.is_valid(candidate):
-//                return False
-//        return True
-
-//    def __init__(self) -> None:
-//        self.filters = [
-//            HexSpeakFilter(),
-//            SequenceHexDigitsFilter(),
-//            MinimumUniqueDigitsFilter()
-//        ]

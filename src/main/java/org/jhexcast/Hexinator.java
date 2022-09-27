@@ -1,5 +1,7 @@
 package org.jhexcast;
 
+import org.jhexcast.utils.Hexutils;
+
 import java.util.*;
 
 public class Hexinator {
@@ -59,8 +61,10 @@ public class Hexinator {
     }
 
     protected int getIncrementedIndex() {
+        System.out.println("cur:" + this.currentIndex);
         this.currentIndex = (this.currentIndex + this.leapDistance) % this.linearSize;
         this.config.setIndex(this.currentIndex);
+        System.out.println("nex:" + this.currentIndex);
         return this.currentIndex;
     }
 
@@ -71,7 +75,7 @@ public class Hexinator {
         return nextHex;
     }
 
-    protected String getNextValidHexString() throws HexInvalidException {
+    protected String getNextValidHexString() throws HexinatorMaxTriesException {
         String nextHS = this.getNextHexString();
         if(! this.config.getValidate()) {
             return nextHS;
@@ -83,7 +87,7 @@ public class Hexinator {
             nextHS = this.getNextHexString();
         }
         if(!validator.isValid(nextHS)) {
-            throw new HexInvalidException();
+            throw new HexinatorMaxTriesException();
         }
         return nextHS;
     }
@@ -94,7 +98,7 @@ public class Hexinator {
      *
      * @return
      */
-    protected HashMap<String, Integer> getSequence() {
+    protected LinkedHashMap<String, Integer> getSequence() {
         int linSize = this.linearSize;
 //        List<Integer> nsequence = new ArrayList<>();
 //        List<String> csequence = new ArrayList<>();
@@ -104,7 +108,7 @@ public class Hexinator {
             int ci = this.config.getStartIndex();
             String cc = Hexutils.joinedString(this.getVectorFromIndex(ci));
 
-            HashMap<String, Integer> seq = new HashMap<>();
+            LinkedHashMap<String, Integer> seq = new LinkedHashMap<>();
             seq.put(cc, ci);
 //            nsequence.add(ci);
 //            csequence.add(cc);
