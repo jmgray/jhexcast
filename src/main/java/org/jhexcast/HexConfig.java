@@ -30,7 +30,6 @@ public class HexConfig {
     private Properties properties=null;
 
     public static HexConfig getInstance(Properties initial) {
-//        System.out.println("instance!");
         if(initial != null) {
             instance = null;
         }
@@ -57,7 +56,6 @@ public class HexConfig {
     }
 
     private HexConfig(Properties initial) {
-//        System.out.println("construct:" + initial);
         this.initialize(initial);
     }
 
@@ -67,7 +65,7 @@ public class HexConfig {
         } else {
             this.properties = new Properties();
         }
-//        System.out.println("initializing properties!");
+
         this.properties.putAll(DEFAULT_VALS);
         this.saveProperties();
     }
@@ -121,7 +119,6 @@ public class HexConfig {
     }
 
     public void setIndex(int index) {
-        System.out.println("setindex:" + index);
         this.properties.setProperty("index", Integer.toString(index));
         this.saveProperties();
     }
@@ -137,6 +134,16 @@ public class HexConfig {
     public int getStartIndex() {
         return Integer.parseInt(this.properties.getProperty("startIndex"));
     }
+
+    public void setNth(int nth) {
+        this.properties.setProperty("nth", Integer.toString(nth));
+        this.saveProperties();
+    }
+
+    public int getNth() {
+        return Integer.parseInt(this.properties.getProperty("nth"));
+    }
+
 
     public void setStartIndex(int startIndex) {
         this.properties.setProperty("startIndex", Integer.toString(startIndex));

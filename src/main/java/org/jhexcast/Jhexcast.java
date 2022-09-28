@@ -35,7 +35,7 @@ public class Jhexcast {
             else if(args[0].toLowerCase().equals(SEQUENCE_ACTION)) {
                 return SEQUENCE_ACTION;
             } else {
-                return null;
+                return NEXT_ACTION;
             }
         }
         return NEXT_ACTION;
@@ -74,9 +74,7 @@ public class Jhexcast {
 
     protected void performNext() {
         try {
-//            System.out.println("C");
             Hexinator hexinator = new Hexinator(HexConfig.getInstance(null));
-//            System.out.println("D");
             String hexs = hexinator.getNextValidHexString();
             this.handleOutput(NEXT_ACTION, hexs);
         } catch (HexinatorMaxTriesException x) {
@@ -101,7 +99,6 @@ public class Jhexcast {
             vecsize = vectorSize;
         }
 
-        System.out.println("vecdim:" + vecdim + ", vecsize:" + vecsize);
         int linearSize = (int) Math.pow(vecsize, vecdim);
 
         String leap = null;
@@ -123,7 +120,7 @@ public class Jhexcast {
 
     protected void handleOutput(String action, Object payload) {
         String msg = "";
-        System.out.println("Act:" + action);
+
         switch (action) {
             case NO_INIT_ACTION: {
                 msg += "You must initialize the system before use:\n";

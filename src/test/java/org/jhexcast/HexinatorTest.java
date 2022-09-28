@@ -1,11 +1,18 @@
 package org.jhexcast;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class HexinatorTest {
+
+    @AfterEach
+    void tearDown() {
+        HexConfig hfcg = HexConfig.getInstance(null);
+        hfcg.initialize(null);
+    }
 
     @Test
     void constructorTest() {

@@ -61,10 +61,12 @@ public class Hexinator {
     }
 
     protected int getIncrementedIndex() {
-        System.out.println("cur:" + this.currentIndex);
         this.currentIndex = (this.currentIndex + this.leapDistance) % this.linearSize;
         this.config.setIndex(this.currentIndex);
-        System.out.println("nex:" + this.currentIndex);
+
+        // increment nth
+        this.config.setNth(this.config.getNth() + 1);
+
         return this.currentIndex;
     }
 
