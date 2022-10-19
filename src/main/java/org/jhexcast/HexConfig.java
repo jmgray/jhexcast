@@ -39,7 +39,6 @@ public class HexConfig {
             } else {
                 instance = new HexConfig(initial);
             }
-
         }
         return instance;
     }
@@ -60,13 +59,11 @@ public class HexConfig {
     }
 
     protected void initialize(Properties initial) {
-        if(initial != null) {
-            this.properties = (Properties) initial.clone();
-        } else {
-            this.properties = new Properties();
-        }
-
+        this.properties = new Properties();
         this.properties.putAll(DEFAULT_VALS);
+        if(initial != null) {
+            this.properties.putAll(initial);
+        }
         this.saveProperties();
     }
 
@@ -135,17 +132,16 @@ public class HexConfig {
         return Integer.parseInt(this.properties.getProperty("startIndex"));
     }
 
-    public void setNth(int nth) {
-        this.properties.setProperty("nth", Integer.toString(nth));
+    public void setNth(long nth) {
+        this.properties.setProperty("nth", Long.toString(nth));
         this.saveProperties();
     }
 
-    public int getNth() {
-        return Integer.parseInt(this.properties.getProperty("nth"));
+    public long getNth() {
+        return Long.parseLong(this.properties.getProperty("nth"));
     }
 
-
     public void setStartIndex(int startIndex) {
-        this.properties.setProperty("startIndex", Integer.toString(startIndex));
+        this.properties.setProperty("startIndex", Long.toString(startIndex));
     }
 }

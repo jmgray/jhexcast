@@ -86,7 +86,6 @@ public class Jhexcast {
         Properties initVals = new Properties();
         Integer vecdim = null;
         Integer vecsize = null;
-
         if(vectorDimension == null){
             vecdim = Integer.parseInt((String) HexConfig.DEFAULT_VALS.get("dimension"));
         } else {
