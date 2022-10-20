@@ -2,7 +2,7 @@
 
 ### Description
 
-This project is the Java version of the original [Hexcast](https://github.com/jmgray/hexcast) and was undertaken as a way to re-familiarize myself with 
+This project is the Java version of my original [Hexcast](https://github.com/jmgray/hexcast) and was undertaken as a way to re-familiarize myself with 
 the Java ecosystem after some years away.
  
 The functional purpose of the software itself is detailed in the [Hexcast Readme](https://github.com/jmgray/hexcast/blob/master/README.md).
