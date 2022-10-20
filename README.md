@@ -30,14 +30,3 @@ save in minor ways. I tried to write in paradigmatic `Java`, if not wholly moder
   * `hexinit.bat` initializes the `hfa.properties` file to support Hexadecimal sequence
   
 For a full explanation of the algorithm see [explanation](https://github.com/jmgray/hexcast/blob/master/explanation.md)
-
-### Observations
-`Java` is certainly as wordy as I remember it but that bothered me less than I thought it might. The expressive nature of `Python` with its lack of type-safety,
-its extraordinarily handy REPL, and its striking brevity made me a quick convert when I moved away from Java. 
-I missed all of those things in some degree while working on this project but `Intellij` has made so much of the old drudgery disappear, as I am sure 
-Its integration with `gradle` for instance, made setting up that part of the project a snap. Of course, where possible, I prefer to use CLI tools 
-when learning new technology. It took me a few tries to get building on the command-line working. 
-I am a long time [Jetbrains](https://www.jetbrains.com/) fan, but I am certain other modern IDEs offer such assistance as well.  
-
-I ran into static typing issues more than once. For something of this size that matters only slightly 
-but for a larger project it might matter a great deal. Again, IDE to the rescue.
