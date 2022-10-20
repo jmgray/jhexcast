@@ -24,9 +24,10 @@ save in minor ways. I tried to write in paradigmatic `Java`, if not wholly moder
 * Download the zip or `git clone` the project
 * navigate to the cloned or unzipped folder
 * Run `build.bat` to create the jar
-* Execute `JHexcast` commands:
+* Execute `JHexcast` commands<sup>1</sup> (to be run from command line):
   * `next.bat` displays the next code in the sequence as determined by the `hfa.properties` file.
   * `sequence.bat` displays the sequence of nodes that are to be visited (codes to be emitted)
   * `hexinit.bat` initializes the `hfa.properties` file to support Hexadecimal sequence
   
-For a full explanation of the algorithm see [explanation](https://github.com/jmgray/hexcast/blob/master/explanation.md)
+For a full explanation of the algorithm see [explanation](https://github.com/jmgray/hexcast/blob/master/explanation.md)<br><br>
+<sup>1. This was built on a windows platform and is not completely cross-platform. I.e, *.bat files only</sup>
