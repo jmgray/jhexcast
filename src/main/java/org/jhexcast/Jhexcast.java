@@ -128,7 +128,12 @@ public class Jhexcast {
                 break;
             }
             case SEQUENCE_ACTION: {
-                Hexutils.dumpMap((Map<String, Integer>)payload);
+                if (payload == null) {
+                    msg += "The matrix is too large to sequence";
+                    System.out.println(msg);
+                } else {
+                    Hexutils.dumpMap((Map<String, Integer>) payload);
+                }
                 break;
             }
             case UNKNOWN_ACTION: {

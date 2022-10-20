@@ -1,1 +1,1 @@
-java -jar build\libs\jhexcast-1.0-SNAPSHOT.jar init 16 8
+java -jar build\libs\jhexcast-0.1.jar init 16 8

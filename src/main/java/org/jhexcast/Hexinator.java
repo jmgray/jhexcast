@@ -102,8 +102,6 @@ public class Hexinator {
      */
     protected LinkedHashMap<String, Integer> getSequence() {
         int linSize = this.linearSize;
-//        List<Integer> nsequence = new ArrayList<>();
-//        List<String> csequence = new ArrayList<>();
 
         if (linSize <  1000) {
             int leap = this.leapDistance;
@@ -112,13 +110,10 @@ public class Hexinator {
 
             LinkedHashMap<String, Integer> seq = new LinkedHashMap<>();
             seq.put(cc, ci);
-//            nsequence.add(ci);
-//            csequence.add(cc);
+
             for (int i = 0; i < linSize - 1; i++) {
                 ci = (ci + leap) % linSize;
                 cc = Hexutils.joinedString(this.getVectorFromIndex(ci));
-//                nsequence.add(ci);
-//                csequence.add(cc);
                 seq.put(cc, ci);
             }
             return seq;
